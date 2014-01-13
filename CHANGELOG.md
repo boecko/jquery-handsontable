@@ -1,10 +1,42 @@
+## [0.10.1](https://github.com/warpech/jquery-handsontable/tree/v0.10.1) (Jan 12, 2013)
+
+Changes since 0.10.0:
+
+- fixed handling copyPaste plugin, when no cell is selected ([#1221](https://github.com/warpech/jquery-handsontable/issues/1221))
+- fixed invoking cell renderers by autoColumnSize plugin ([#1253](https://github.com/warpech/jquery-handsontable/issues/1253))
+- fixed WeakMap shim for IE8 ([#1251](https://github.com/warpech/jquery-handsontable/issues/1251))
+- fixed removing rows from a sorted table ([#1072](https://github.com/warpech/jquery-handsontable/issues/1072))
+- fixed handling contextMenu plugin with multiple Handsontable instances ([#1238](https://github.com/warpech/jquery-handsontable/issues/1238))
+- cell editor won't open after pressing <kbd>ALT</kbd> ([#1239](https://github.com/warpech/jquery-handsontable/issues/1239))
+- improved Web Components binding of Handsontable configuration to DOM properties
+
+
+## [0.10.0](https://github.com/warpech/jquery-handsontable/tree/v0.10.0) (Dec 27, 2013)
+
+Changes since beta4:
+
+- all renderers moved to a common namespace Handsontable.renderers (old names such as Handsontable.TextRenderer still works, but are deprecated)
+- fixed displaying editors when allowInvalid is set to true ([#1185](https://github.com/warpech/jquery-handsontable/issues/1185))
+- CapsLock no longer opens editor ([#1200](https://github.com/warpech/jquery-handsontable/issues/1200))
+- `loadData` now clears cellProperties cache ([#1133](https://github.com/warpech/jquery-handsontable/issues/1133))
+- when cell edit is cancelled, the original value is not validated
+- copy and paste handling has been moved to a separate plugin
+- added htmlRenderer
+- fixed problems with space key, when table contains cells of type `checkbox` ([#1199](https://github.com/warpech/jquery-handsontable/issues/1199))
+- fixed expanding `<select>` in selectEditor ([#1176](https://github.com/warpech/jquery-handsontable/issues/1176))
+- fixed error occasionally thrown in IE8 ([#1084](https://github.com/warpech/jquery-handsontable/issues/1084))
+- fixed selecting last column in scrollable table ([#1124](https://github.com/warpech/jquery-handsontable/issues/1124))
+- simplified contextMenu plugin and fixed displaying menu for tables with native scroll enabled
+- set double click time to 500 ms
+
+
 ## [0.10.0-beta4](https://github.com/warpech/jquery-handsontable/tree/v0.10.0-beta4) (Nov 27, 2013)
 
 Changes since beta3:
 - fixed displaying context menu in IE8
 - autocompleteEditor has new option `filter` which control whether options which don't match the phrase typed in the input should be hidden
 - new editor called `dropdown`
-- from now on value of `type` option can only be a string
+- from now on value of `type` option can only be a string (use `{renderer: someFunction}` instead of `{type: {renderer: someFunction}}`)
 - enhanced integration with Polymer and Web Components
 - fixed opening cell editor with doubleclick in IE8
 - fixed doubleclicking on cell of type `checkbox`

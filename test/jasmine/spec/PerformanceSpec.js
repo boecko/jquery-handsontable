@@ -15,17 +15,21 @@ describe('Performance', function () {
   });
 
   it('should call renderer once for each cell', function () {
-    var spy = spyOn(Handsontable.TextCell, 'renderer').andCallThrough();
+    var count = 0;
 
     handsontable({
       startRows: 4,
-      startCols: 4
+      startCols: 4,
+      renderer: function () {
+        Handsontable.renderers.TextRenderer.apply(this, arguments);
+        count++;
+      }
     });
 
-    expect(spy.callCount).toEqual(32); //16 in main table and 16 in autocellsize
+    expect(count).toEqual(32); //16 in main table and 16 in autocellsize
   });
 
-  it('should call getCellMeta once for each cell', function () {
+  it('should call getCellMeta twice for each cell', function () {
     var count = 0;
 
     handsontable({
@@ -36,6 +40,6 @@ describe('Performance', function () {
       }
     });
 
-    expect(count).toEqual(28); //16 in main table and 4 in autocellsize and 8 in getColWidth
+    expect(count).toEqual(40); //16 in main table and 16 in autocellsize and 8 in getColWidth
   });
 });
